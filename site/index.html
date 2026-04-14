@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello Coursera!</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Japan Trip Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<h1>Hello Coursera! It's a great course!</h1>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Japan 2026</p>
+        <h1>Itinerary Planner</h1>
+      </div>
+      <button id="edit-toggle" class="btn btn-ghost" type="button" aria-pressed="false">Enter Edit Mode</button>
+    </header>
+
+    <section class="panel progress-panel" aria-label="Trip progress">
+      <div>
+        <p class="muted">Checked off</p>
+        <p class="value"><span id="checked-count">0</span>/<span id="total-count">0</span></p>
+      </div>
+      <div>
+        <p class="muted">Completion</p>
+        <p class="value" id="progress-percent">0%</p>
+      </div>
+    </section>
+
+    <section class="toolbar panel" aria-label="Filters">
+      <div id="tab-group" class="pill-group" role="tablist"></div>
+      <div id="status-filter" class="pill-group"></div>
+    </section>
+
+    <section id="planner" class="planner" aria-live="polite"></section>
+
+    <section class="footer-actions">
+      <button id="add-day" type="button" class="btn btn-primary hidden">+ Add Day</button>
+    </section>
+  </main>
+
+  <template id="event-template">
+    <article class="event-card">
+      <header class="event-top">
+        <label class="check-wrap">
+          <input class="event-check" type="checkbox" />
+          <span class="check-ui"></span>
+        </label>
+        <div class="event-main"></div>
+        <span class="status-badge"></span>
+      </header>
+      <div class="event-meta"></div>
+      <div class="event-actions hidden">
+        <button type="button" class="btn btn-mini up">↑</button>
+        <button type="button" class="btn btn-mini down">↓</button>
+        <button type="button" class="btn btn-mini btn-danger delete">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
 </body>
 </html>
